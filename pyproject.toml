@@ -3,7 +3,10 @@ name = "pre-commit-hook-ensure-sops"
 version = "0.1.0"
 description = "Pre-commit hook to ensure Sops secrets are encrypted before committing."
 readme = "README.md"
-requires-python = ">=3.13"
+# pre-commit installs `language: python` hooks with whatever interpreter runs
+# pre-commit, so the floor has to be the oldest Python our consumers' CI uses,
+# not the newest release. 3.10 is what the code needs, for `X | None`.
+requires-python = ">=3.10"
 authors = [
     { name = "Yuvi Panda", email = "yuvipanda@gmail.com" }
 ]
